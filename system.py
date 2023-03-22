@@ -10,6 +10,7 @@ with open('data.csv') as f:
     data = list(reader)
 
 for i, name in enumerate(data):
+
     image = Image.open('cert.png')
     draw = ImageDraw.Draw(image)
     text_width, text_height = draw.textsize(name[0], font)
@@ -32,5 +33,20 @@ for i, name in enumerate(data):
     image.save(f'./images/{name[0]} - {name[1]} - {name[2]}.jpg')
 
     number_of_certificates += 1
+
+    #Splitting the certificates into different folders. 
+
+    # if name[2] == 'Harnois':
+
+    #     image.save(f'./images/Harnois/{name[0]} - {name[1]} - {name[2]}.jpg')
+
+    #     number_of_certificates += 1
+    # else:
+
+    #     print(f'./images/{name[0]} - {name[1]} - {name[2]}.jpg')
+
+    #     image.save(f'./images/{name[0]} - {name[1]} - {name[2]}.jpg')
+
+    #     number_of_certificates += 1
 
 print(number_of_certificates)
