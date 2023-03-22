@@ -37,7 +37,7 @@ for i, name in enumerate(data):
     #Company Name
     draw.text((335, 1000), name[2], font=font, fill=(0, 0, 0))
 
-    print(f'./images/{name[0]} - {name[1]} - {name[2]}.jpg')
+    print(f'./certs/{name[2]}/{name[0]} - {name[1]} - {name[2]}.jpg')
 
     image.save(f'./certs/{name[2]}/{name[0]} - {name[1]} - {name[2]}.jpg')
 
