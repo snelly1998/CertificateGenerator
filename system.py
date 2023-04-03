@@ -17,7 +17,7 @@ for i, name in enumerate(data):
         unique_values.append(name[2])
 
 for value in unique_values:
-    os.makedirs(f"./{value}/", exist_ok=True)
+    os.makedirs(f"./certs/{value}/", exist_ok=True)
 
 for i, name in enumerate(data):
     image = Image.open('cert.png')
@@ -35,12 +35,8 @@ for i, name in enumerate(data):
     #Completion Date
     draw.text((1250, 1000), name[1], font=font, fill=(0, 0, 0))
     #Company Name
-    draw.text((335, 1000), name[2], font=font, fill=(0, 0, 0))
-
-    print(f'./certs/{name[2]}/{name[0]} - {name[1]} - {name[2]}.jpg')
+    draw.text((300, 1000), name[2], font=font, fill=(0, 0, 0))
 
     image.save(f'./certs/{name[2]}/{name[0]} - {name[1]} - {name[2]}.jpg')
 
     number_of_certificates += 1
-
-print(number_of_certificates)
