@@ -4,7 +4,6 @@ import os
 import zipfile
 
 # TODO: Rewrite the certificate.png so that we can add a Course Name rather than it being static. 
-# TODO: Maybe check a database of some sort that see when the last time the script was run? Maybe not important though. 
 
 #Global Vars
 folder_path = './certs/'
