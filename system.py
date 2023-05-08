@@ -33,8 +33,7 @@ for i, name in enumerate(data):
     
     # Checks to see if the date on the certificate is on or after the date provided by the user
     # This ensures that the certificates being generated are only the ones that are required.     
-    if complete_date >= "2023-01-05" and score == "100.0":
-        print(student, complete_date, store_name, score)
+    if complete_date >= "2023-05-05" and score == "100.0":
         # Grabs the image and draws it
         image = Image.open('cert.png')
         draw = ImageDraw.Draw(image)
