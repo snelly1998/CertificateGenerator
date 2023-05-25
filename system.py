@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw, ImageFont
 import csv
 import os
 import zipfile
+from datetime import datetime
 
 # TODO: Rewrite the certificate.png so that we can add a Course Name rather than it being static. 
 
@@ -9,6 +10,9 @@ import zipfile
 folder_path = './certs/'
 font = ImageFont.truetype('arial.ttf', 60)
 unique_values = []
+start_date = "2023-05-08"
+checked_date = "2023-05-21"
+required_score = "100.0"
 
 with open('data.csv', encoding="utf8", errors='ignore') as f:
     reader = csv.reader(f)
@@ -31,8 +35,8 @@ for i, name in enumerate(data):
     score = name[3]
     
     # Checks to see if the date on the certificate is on or after the date provided by the user
-    # This ensures that the certificates being generated are only the ones that are required.     
-    if complete_date >= "2023-05-05" and score == "100.0":
+    # This ensures that the certificates being generated are only the ones that are required.   
+    if complete_date >= start_date and checked_date >= start_date and score == required_score:
         # Grabs the image and draws it
         image = Image.open('cert.png')
         draw = ImageDraw.Draw(image)
@@ -67,3 +71,7 @@ for folder_name in os.listdir(folder_path):
                     file_path_full = os.path.join(folder_path_full, file_name)
                     if os.path.isfile(file_path_full):
                         zip_file.write(file_path_full, file_name)
+                        
+checked_date = str(datetime.today()).split(" ")[0]
+
+                
