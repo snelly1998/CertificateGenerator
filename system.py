@@ -10,12 +10,12 @@ from datetime import datetime
 folder_path = "./certs/"
 font = ImageFont.truetype("arial.ttf", 60)
 unique_values = []
-start_date = "2023-05-08"
-checked_date = "2023-05-21"
+start_date = "2023-08-08"
+checked_date = "2023-08-14"
 required_score = "100"
 
 with open("data.csv", encoding="utf8", errors="ignore") as f:
-    reader = csv.reader(f)
+    reader = csv.reader(f, dialect="excel")
     data = list(reader)
 
 # Loops over the store names and adds each unique name into a list.
@@ -44,7 +44,11 @@ for i, name in enumerate(data):
         # Grabs the image and draws it
         image = Image.open("cert.png")
         draw = ImageDraw.Draw(image)
-        text_width, text_height = draw.textsize(student, font)
+
+        # Calculates the size of the text
+        text_bbox = draw.textbbox((0, 0), student, font=font)
+        text_width = text_bbox[2] - text_bbox[0]
+        text_height = text_bbox[3] - text_bbox[1]
 
         # Gets the center of the page so that we can write the students name in the middle.
         x = (image.width - text_width) / 2

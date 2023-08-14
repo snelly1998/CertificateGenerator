@@ -3,3 +3,4 @@
 *.zip
 /certs/
 /certs/*
+data.csv
