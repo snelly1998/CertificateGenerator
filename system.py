@@ -63,7 +63,7 @@ for i, name in enumerate(data):
 
         # Saves the image to the certs folder.
         image.save(
-            f"./certs/{store_name}/{student} - {complete_date} - {store_name}.jpg"
+            f"./certs/{store_name}/{student} - {complete_date} - {store_name}.pdf"
         )
 
 for folder_name in os.listdir(folder_path):
